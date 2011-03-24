@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.0.7, created on 2011-03-22 23:33:14
+<?php /* Smarty version Smarty-3.0.7, created on 2011-03-24 12:20:46
          compiled from "./templates/search.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:17082451764d8923aa09e3d9-63565364%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:15970424574d8b290ea85244-07153819%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '692c3bc93f5ce1085954c77c1d0c047332ab27c2' => 
     array (
       0 => './templates/search.tpl',
-      1 => 1300833176,
+      1 => 1300965643,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '17082451764d8923aa09e3d9-63565364',
+  'nocache_hash' => '15970424574d8b290ea85244-07153819',
   'function' => 
   array (
   ),
@@ -20,16 +20,25 @@ $_smarty_tpl->decodeProperties(array (
 <?php $_template = new Smarty_Internal_Template("header.tpl", $_smarty_tpl->smarty, $_smarty_tpl, $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null);
 $_template->assign('title','foo'); echo $_template->getRenderedTemplate();?><?php unset($_template);?>
 
+<?php if (isset($_smarty_tpl->getVariable('noProfile',null,true,false)->value)){?>
+<div class="warning">
+You have to generate your profile first to use this search. Until you do this, only web and facebook will be used.
+</div>
+<?php }?>
+
+
 <form method="POST" name="search-form">
 	<input type="text" name="text">
 	<input type="submit" name="submit">
 </form>
 
 <?php if ($_smarty_tpl->getVariable('submit')->value){?>
-	<div style='float: left; margin-right: 10px;'><h2>Your key words</h2>
-	<?php echo $_smarty_tpl->getVariable('yourWords')->value;?>
+	<?php if (isset($_smarty_tpl->getVariable('yourWords',null,true,false)->value)){?>
+		<div style='float: left; margin-right: 10px;'><h2>Your key words</h2>
+		<?php echo $_smarty_tpl->getVariable('yourWords')->value;?>
 
-	</div>
+		</div>
+	<?php }?>
 	<div style='float: left; margin-right: 10px;'><h2>Web key words</h2>
 	<?php echo $_smarty_tpl->getVariable('webWords')->value;?>
 
@@ -39,19 +48,23 @@ $_template->assign('title','foo'); echo $_template->getRenderedTemplate();?><?ph
 
 	</div>
 	<div style='float: left; margin-right: 20px;'><h2>Prienik</h2>
-	<?php echo $_smarty_tpl->getVariable('intersection')->value;?>
-
-	<h2>Sortovany prienik</h2>
 	<?php  $_smarty_tpl->tpl_vars['item'] = new Smarty_Variable;
- $_from = $_smarty_tpl->getVariable('sortedIntersection')->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
+ $_from = $_smarty_tpl->getVariable('sortedResults')->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
 if ($_smarty_tpl->_count($_from) > 0){
     foreach ($_from as $_smarty_tpl->tpl_vars['item']->key => $_smarty_tpl->tpl_vars['item']->value){
 ?>
-		[<?php echo $_smarty_tpl->tpl_vars['item']->value[0];?>
+		<?php if (isset($_smarty_tpl->getVariable('yourWords',null,true,false)->value)){?>
+			[<?php echo $_smarty_tpl->tpl_vars['item']->value[0];?>
  : <?php echo $_smarty_tpl->tpl_vars['item']->value[1];?>
  : <?php echo $_smarty_tpl->tpl_vars['item']->value[2];?>
 ] <?php echo $_smarty_tpl->tpl_vars['item']->value[3];?>
 <br>
+		<?php }else{ ?>
+			[<?php echo $_smarty_tpl->tpl_vars['item']->value[0];?>
+ : <?php echo $_smarty_tpl->tpl_vars['item']->value[1];?>
+] <?php echo $_smarty_tpl->tpl_vars['item']->value[2];?>
+<br>
+		<?php }?>
 	<?php }} ?>
 	</div>
 	<div style='float: left; margin-right: 10px;'><h2>Statistika</h2>

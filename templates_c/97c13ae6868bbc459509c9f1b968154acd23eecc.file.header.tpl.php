@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.0.7, created on 2011-03-19 14:59:10
+<?php /* Smarty version Smarty-3.0.7, created on 2011-03-24 11:30:08
          compiled from "./templates/header.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:12961505034d84b6ae9124a6-19007904%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:16709334384d8b1d30d8c217-70933372%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '97c13ae6868bbc459509c9f1b968154acd23eecc' => 
     array (
       0 => './templates/header.tpl',
-      1 => 1300543132,
+      1 => 1300962605,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '12961505034d84b6ae9124a6-19007904',
+  'nocache_hash' => '16709334384d8b1d30d8c217-70933372',
   'function' => 
   array (
   ),
@@ -77,6 +77,7 @@ $_smarty_tpl->decodeProperties(array (
 		font-weight: bold;
 		padding: 5px;
 		width: auto;
+		margin: 5px;	
 	}
 	
 	.warning {
@@ -85,7 +86,8 @@ $_smarty_tpl->decodeProperties(array (
 		border: 1px solid #e2c822;
 		font-weight: bold;
 		padding: 5px;
-		width: auto;	
+		width: auto;
+		margin: 5px;	
 	}
 	
 	.results{
@@ -111,6 +113,6 @@ $_smarty_tpl->decodeProperties(array (
 			<li><a href="./?logout">Logout</a></li>
 		<?php }else{ ?>
 	    		<li><a href="./?signin">Login</a></li>
-	<?php }?>
+		<?php }?>
 	</ul>
 	</div>

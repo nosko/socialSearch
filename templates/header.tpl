@@ -58,6 +58,7 @@
 		font-weight: bold;
 		padding: 5px;
 		width: auto;
+		margin: 5px;	
 	}
 	
 	.warning {
@@ -66,7 +67,8 @@
 		border: 1px solid #e2c822;
 		font-weight: bold;
 		padding: 5px;
-		width: auto;	
+		width: auto;
+		margin: 5px;	
 	}
 	
 	.results{
@@ -92,6 +94,6 @@
 			<li><a href="./?logout">Logout</a></li>
 		{else}
 	    		<li><a href="./?signin">Login</a></li>
-	{/if}
+		{/if}
 	</ul>
 	</div>
